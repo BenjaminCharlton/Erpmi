@@ -63,7 +63,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Basics\Basics.csproj" />
+    <ProjectReference Include="..\Basics\Basics.csproj" />
     <ProjectReference Include="..\Erpmi.Controllers\Erpmi.Controllers.csproj" />
     <ProjectReference Include="..\Erpmi.Core\Erpmi.Core.csproj" />
     <ProjectReference Include="..\Erpmi.Persistence.EntityFramework\Erpmi.Persistence.EntityFramework.csproj" />
