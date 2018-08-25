@@ -21,12 +21,11 @@ using OpenIddict.Abstractions;
 using Erpmi.Core.ViewModels;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
-using AppPermissions = Erpmi.Security.Permissions;
+using Erpmi.Security;
 using Erpmi.Persistence.EntityFramework;
 using Erpmi.Persistence;
 using Basics.Persistence;
 using Basics.Security;
-using Erpmi.Security;
 using Basics.Communications;
 
 namespace Erpmi
@@ -151,12 +150,12 @@ namespace Erpmi
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(Policies.ViewAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, AppPermissions.ViewUsers));
-                options.AddPolicy(Policies.ManageAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, AppPermissions.ManageUsers));
+                options.AddPolicy(Policies.ViewAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ViewUsers));
+                options.AddPolicy(Policies.ManageAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ManageUsers));
 
-                options.AddPolicy(Policies.ViewAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, AppPermissions.ViewRoles));
+                options.AddPolicy(Policies.ViewAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ViewRoles));
                 options.AddPolicy(Policies.ViewRoleByRoleName, policy => policy.Requirements.Add(new ViewRoleAuthorizationRequirement()));
-                options.AddPolicy(Policies.ManageAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, AppPermissions.ManageRoles));
+                options.AddPolicy(Policies.ManageAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ManageRoles));
 
                 options.AddPolicy(Policies.AssignAllowedRoles, policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
             });
