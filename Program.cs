@@ -12,9 +12,9 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Erpmi.Core.Helpers;
 using Erpmi.Persistence;
 using Basics.Persistence;
+using Basics.Logging;
 
 namespace Erpmi
 {
@@ -35,7 +35,7 @@ namespace Erpmi
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogCritical(LoggingEvents.INIT_DATABASE, ex, LoggingEvents.INIT_DATABASE.Name);
+                    logger.LogCritical(LoggingEvents.InitDatabase, ex, LoggingEvents.InitDatabase.Name);
                 }
             }
 

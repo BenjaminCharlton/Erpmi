@@ -18,7 +18,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OpenIddict.Abstractions;
-using Erpmi.Core.Helpers;
 using Erpmi.Core.ViewModels;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -28,6 +27,7 @@ using Erpmi.Persistence;
 using Basics.Persistence;
 using Basics.Security;
 using Erpmi.Security;
+using Basics.Communications;
 
 namespace Erpmi
 {
@@ -198,7 +198,7 @@ namespace Erpmi
             loggerFactory.AddFile(Configuration.GetSection("Logging"));
 
             Basics.Logging.Utilities.ConfigureLogger(loggerFactory);
-            EmailTemplates.Initialize(env);
+            Email.Initialize(env);
 
             if (env.IsDevelopment())
             {

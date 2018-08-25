@@ -53,9 +53,8 @@
 
   <ItemGroup>
     <Compile Remove="DesignTimeDbContextFactory.cs" />
-    <Compile Remove="Helpers\EmailTemplates.cs" />
-    <Compile Remove="Helpers\LoggingEvents.cs" />
-    <Compile Remove="Helpers\Utilities.cs" />
+    <Compile Remove="Email\LoggingEvents.cs" />
+    <Compile Remove="Email\Utilities.cs" />
   </ItemGroup>
 
   <ItemGroup>
