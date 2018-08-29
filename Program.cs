@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Erpmi.Persistence;
-using Basics.Persistence;
+//using Basics.Persistence;
 using Basics.Logging;
 
 namespace Erpmi
@@ -27,16 +27,16 @@ namespace Erpmi
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                try
-                {
-                    var databaseInitializer = services.GetRequiredService<IDatabaseSeeder>();
-                    databaseInitializer.SeedAsync().Wait();
-                }
-                catch (Exception ex)
-                {
-                    var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogCritical(LoggingEvents.InitDatabase, ex, LoggingEvents.InitDatabase.Name);
-                }
+                //try
+                //{
+                //    var databaseInitializer = services.GetRequiredService<IDatabaseSeeder>();
+                //    databaseInitializer.SeedAsync().Wait();
+                //}
+                //catch (Exception ex)
+                //{
+                //    var logger = services.GetRequiredService<ILogger<Program>>();
+                //    logger.LogCritical(LoggingEvents.InitDatabase, ex, LoggingEvents.InitDatabase.Name);
+                //}
             }
 
             host.Run();

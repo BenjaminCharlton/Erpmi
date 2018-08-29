@@ -24,7 +24,7 @@ using System;
 using Erpmi.Security;
 using Erpmi.Persistence.EntityFramework;
 using Erpmi.Persistence;
-using Basics.Persistence;
+//using Basics.Persistence;
 using Basics.Security;
 using Basics.Communications;
 
@@ -150,12 +150,12 @@ namespace Erpmi
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy(Policies.ViewAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ViewUsers));
-                options.AddPolicy(Policies.ManageAllUsers, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ManageUsers));
+                options.AddPolicy(Policies.ViewAllUsers, policy => policy.RequireClaim(ClaimTypes.Permission, Permissions.ViewUsers));
+                options.AddPolicy(Policies.ManageAllUsers, policy => policy.RequireClaim(ClaimTypes.Permission, Permissions.ManageUsers));
 
-                options.AddPolicy(Policies.ViewAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ViewRoles));
+                options.AddPolicy(Policies.ViewAllRoles, policy => policy.RequireClaim(ClaimTypes.Permission, Permissions.ViewRoles));
                 options.AddPolicy(Policies.ViewRoleByRoleName, policy => policy.Requirements.Add(new ViewRoleAuthorizationRequirement()));
-                options.AddPolicy(Policies.ManageAllRoles, policy => policy.RequireClaim(Security.ClaimTypes.Permission, Permissions.ManageRoles));
+                options.AddPolicy(Policies.ManageAllRoles, policy => policy.RequireClaim(ClaimTypes.Permission, Permissions.ManageRoles));
 
                 options.AddPolicy(Policies.AssignAllowedRoles, policy => policy.Requirements.Add(new AssignRolesAuthorizationRequirement()));
             });
@@ -185,7 +185,7 @@ namespace Erpmi
             services.AddSingleton<IAuthorizationHandler, AssignRolesAuthorizationHandler>();
 
             // DB Creation and Seeding
-            services.AddTransient<IDatabaseSeeder, ApplicationDbContextSeeder>();
+            //services.AddTransient<IDatabaseSeeder, ApplicationDbContextSeeder>();
         }
 
 
